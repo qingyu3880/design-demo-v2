@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeaFlow - AI-Powered Tea Experience</title>
+<style>
+/* 
+  v1 典型AI默认输出:
+  - 紫色渐变 ✓
+  - Inter + slate-900 ✓
+  - 居中hero ✓
+  - 3等分feature cards ✓
+  - glassmorphism ✓
+  - em-dash everywhere ✓
+  - "Seamless" "Elevate" "Next-Gen" filler verbs ✓
+  - "John Doe" generic names ✓
+  - version label in hero ✓
+  - decoration text strip ✓
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #7c3aed;
+  --primary-light: #a78bfa;
+  --secondary: #2563eb;
+  --bg-dark: #0f172a;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text);
+}
+
+/* 紫色渐变hero + 居中 + dark mesh */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #7c3aed 100%);
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(124,58,237,0.3), transparent 60%),
+              radial-gradient(circle at 70% 50%, rgba(37,99,235,0.3), transparent 60%);
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+/* Version label in hero (禁令) */
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+/* Em-dash everywhere (禁令) */
+.hero p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2rem;
+}
+
+/* Glassmorphism CTA (禁令) */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: white;
+  color: #7c3aed;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Decoration text strip (禁令) */
+.hero-strip {
+  margin-top: 3rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* 3等分feature cards (禁令) */
+.features {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.features-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.features-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Glassmorphism cards (禁令) */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Testimonials with generic names (禁令) */
+.testimonials {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.testimonial span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Version footer (禁令) */
+footer {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.contrast-badge {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: #7c3aed;
+  color: white;
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 100;
+}
+</style>
+</head>
+<body>
+
+<div class="contrast-badge">v1 AI Default</div>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">BETA — v0.6</div>
+    <h1>Elevate Your Tea Experience — Seamlessly</h1>
+    <p>Next-Gen AI-powered tea rituals that transform your daily brew into an extraordinary journey of flavor and mindfulness.</p>
+    <div class="cta-group">
+      <button class="btn-primary">Get Started Free</button>
+      <button class="btn-secondary">Watch Demo</button>
+    </div>
+    <p class="hero-strip">TEA · AI · MINDFULNESS · RITUAL · EXPERIENCE</p>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-header">
+    <h2>Unleash the Power of Smart Tea</h2>
+    <p>Revolutionize your tea routine with cutting-edge features</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🫖</div>
+      <h3>AI-Powered Brewing</h3>
+      <p>Our revolutionary algorithm analyzes 99.99% of tea parameters to deliver the perfect brew every single time.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧘</div>
+      <h3>Seamless Mindfulness</h3>
+      <p>Integrate meditation seamlessly into your tea ritual — transforming ordinary moments into extraordinary experiences.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Next-Gen Analytics</h3>
+      <p>Track your tea journey with beautiful dashboards. 50% of users report enhanced well-being within just 7 days.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>Quietly Trusted by Tea Enthusiasts</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <p>"This product has seamlessly elevated my daily routine to new heights."</p>
+      <span>- Sarah Chen, CEO</span>
+    </div>
+    <div class="testimonial">
+      <p>"A revolutionary experience that transforms the ordinary into the extraordinary."</p>
+      <span>- John Doe, Designer</span>
+    </div>
+    <div class="testimonial">
+      <p>"Next-gen tea technology that I never knew I needed — absolutely game-changing."</p>
+      <span>- Jack Su, Engineer</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>TeaFlow v1.4.2 — Built with ❤️ — Last sync 4s ago · main</p>
+</footer>
+
+</body>
+</html>
