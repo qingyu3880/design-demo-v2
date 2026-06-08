@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿赖耶 Design Skill v2 - Demo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+SC:wght@200;300;400;600&family=Inter:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Newsreader', 'Noto Serif SC', serif;
+  background: oklch(0.95 0.005 80);
+  color: oklch(0.25 0.02 30);
+  line-height: 1.8;
+}
+
+/* Index page */
+.index {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.index h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.index h1 em {
+  font-style: italic;
+  color: oklch(0.35 0.02 60);
+}
+
+.index .subtitle {
+  color: oklch(0.50 0.02 60);
+  margin-bottom: 3rem;
+}
+
+.demos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.demo-card {
+  border: 1px solid oklch(0.80 0.01 60);
+  border-radius: 0.25rem;
+  padding: 2rem;
+  transition: border-color 300ms ease;
+}
+
+.demo-card:hover {
+  border-color: oklch(0.55 0.03 40);
+}
+
+.demo-card .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.demo-card .tag.pass {
+  background: oklch(0.92 0.03 140);
+  color: oklch(0.35 0.06 140);
+}
+
+.demo-card .tag.fail {
+  background: oklch(0.92 0.03 25);
+  color: oklch(0.40 0.10 25);
+}
+
+.demo-card h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.demo-card p {
+  color: oklch(0.50 0.02 60);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.demo-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: oklch(0.35 0.02 60);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid oklch(0.35 0.02 60);
+  padding-bottom: 2px;
+  transition: gap 300ms ease, color 300ms ease;
+}
+
+.demo-card a:hover {
+  gap: 1rem;
+  color: oklch(0.40 0.03 140);
+  border-color: oklch(0.40 0.03 140);
+}
+
+.check-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid oklch(0.85 0.005 60);
+}
+
+.check-section h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.check-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.check-table th {
+  text-align: left;
+  font-weight: 400;
+  color: oklch(0.50 0.02 60);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid oklch(0.85 0.005 60);
+}
+
+.check-table td {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid oklch(0.90 0.005 60);
+}
+
+.check-table .rule { width: 55%; }
+.check-table .v1, .check-table .v2 { width: 15%; text-align: center; }
+
+.total-row td {
+  font-weight: 600;
+  border-bottom: none;
+  padding-top: 0.75rem;
+}
+</style>
+</head>
+<body>
+
+<section class="index">
+  <h1>阿赖耶 Design <em>v2</em></h1>
+  <p class="subtitle">境界词驱动 vs AI默认 - 对比验证</p>
+
+  <div class="demos">
+    <div class="demo-card">
+      <span class="tag pass">16/16 通过</span>
+      <h2>侘寂 - 境界词驱动</h2>
+      <p>枯褐色板 + 衬线手写 + 极多留白 + 极克制动效。无渐变、无glassmorphism、无3-column cards。</p>
+      <a href="wabi-sabi.html">打开页面 →</a>
+    </div>
+
+    <div class="demo-card">
+      <span class="tag fail">1/16 通过</span>
+      <h2>AI Default - 典型LLM输出</h2>
+      <p>紫色渐变 + Inter + 3等分cards + glassmorphism + em-dash遍地 + 填充词。15条禁令全犯。</p>
+      <a href="ai-default.html">打开页面 →</a>
+    </div>
+  </div>
+
+  <div class="check-section">
+    <h2>Pre-Flight Check 对比</h2>
+    <table class="check-table">
+      <thead>
+        <tr><th class="rule">Rule</th><th class="v1">v1</th><th class="v2">v2</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Design Read declared</td><td>❌</td><td>✅</td></tr>
+        <tr><td>境界词 identified and mapped</td><td>❌</td><td>✅</td></tr>
+        <tr><td>ZERO em-dashes</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Inter禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>AI-purple渐变禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>3-column equal cards禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Glassmorphism节制</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Hero version label禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Decoration text strip禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Filler verbs禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Generic names禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Fake-perfect numbers禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Version footer禁令</td><td>❌</td><td>✅</td></tr>
+        <tr><td>oklch()色彩系统</td><td>❌</td><td>✅</td></tr>
+        <tr><td>Pure black禁令</td><td>✅</td><td>✅</td></tr>
+        <tr><td>降幻三板斧</td><td>❌</td><td>✅</td></tr>
+        <tr class="total-row"><td>TOTAL</td><td>1/16</td><td>16/16</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</body>
+</html>
